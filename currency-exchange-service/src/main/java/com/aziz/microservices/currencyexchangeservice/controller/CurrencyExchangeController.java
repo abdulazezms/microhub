@@ -32,7 +32,8 @@ public class CurrencyExchangeController {
 //        System.out.println(request.getHeader("Forwarded"));
 //        System.out.println(request.getHeader("X-Forwarded-For"));
 //        Enumeration<String> headerNames = request.getHeaderNames();
-        logger.info("getConversionRate called with: {} to {}", from, to);
+        logger.info("currency exchange - getConversionRate called with: {} to {}", from, to);
+
 //        while (headerNames.hasMoreElements()) {
 //            String headerName = headerNames.nextElement();
 //            String headerValue = request.getHeader(headerName);
