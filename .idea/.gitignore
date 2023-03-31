@@ -7,7 +7,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-
+/libraries
 ### STS ###
 .apt_generated
 .classpath
