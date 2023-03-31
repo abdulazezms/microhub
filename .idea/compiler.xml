@@ -9,7 +9,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="currency-conversion-microservice" />
         <module name="currency-exchange-service" />
-        <module name="naming-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
