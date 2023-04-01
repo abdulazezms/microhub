@@ -21,7 +21,7 @@ public class CurrencyExchangeServiceImpl implements CurrencyExchangeService{
         Optional<CurrencyExchange> currencyExchange = currencyExchangeRepository.findByFromAndTo(from, to);
         //                  change k8s                  //
         //when we run this service as part of k8s, it would provide with you info about the pod where the container is running.
-        String port = environment.getProperty("local.server.port"), host = environment.getProperty("HOSTNAME"), version = "v11";
+        String port = environment.getProperty("local.server.port"), host = environment.getProperty("HOSTNAME"), version = "v12";
         currencyExchange.ifPresent(exchange -> exchange.setEnvironment("Host: " + host+", port: " + port+", v: " + version));
         return currencyExchange.orElseThrow(() -> new RuntimeException("No data found for conversion from " + from + " to " + to));
     }

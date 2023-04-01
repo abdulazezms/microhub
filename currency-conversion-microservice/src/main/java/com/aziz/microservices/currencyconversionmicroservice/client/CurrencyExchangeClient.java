@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 //If the environment variables is not found, use the localhost. When we deploy
 //this service to k8s, we'd need to configure this env variable.
+//@FeignClient(name = "currency-exchange",
+//        url = "${CURRENCY_EXCHANGE_SERVICE_HOST:http://localhost}:8000")
+
 @FeignClient(name = "currency-exchange",
-        url = "${CURRENCY_EXCHANGE_SERVICE_HOST:http://localhost}:8000")
+        url = "${CURRENCY_EXCHANGE_SERVICE_URI:http://localhost}:8000")
 public interface CurrencyExchangeClient {
     @GetMapping("/currency-exchange/from/{from}/to/{to}")
     CurrencyConversion getConversionRate(@PathVariable String from, @PathVariable String to);

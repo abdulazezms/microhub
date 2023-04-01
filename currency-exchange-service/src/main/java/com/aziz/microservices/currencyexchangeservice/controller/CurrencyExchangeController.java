@@ -29,16 +29,18 @@ public class CurrencyExchangeController {
     public CurrencyExchange getConversionRate(@PathVariable String from,
                                               @PathVariable String to,
                                               HttpServletRequest request)  {
-//        System.out.println(request.getHeader("Forwarded"));
-//        System.out.println(request.getHeader("X-Forwarded-For"));
-//        Enumeration<String> headerNames = request.getHeaderNames();
-        logger.info("currency exchange - getConversionRate called with: {} to {}", from, to);
 
-//        while (headerNames.hasMoreElements()) {
-//            String headerName = headerNames.nextElement();
-//            String headerValue = request.getHeader(headerName);
-//            System.out.println(headerName + ": " + headerValue);
-//        }
+        System.out.println("Forwarded: " + request.getHeader("Forwarded"));
+        System.out.println("X-Forwarded-For: " + request.getHeader("X-Forwarded-For"));
+        Enumeration<String> headerNames = request.getHeaderNames();
+
+        while (headerNames.hasMoreElements()) {
+            String headerName = headerNames.nextElement();
+            String headerValue = request.getHeader(headerName);
+            System.out.println(headerName + ": " + headerValue);
+        }
+
+        logger.info("currency exchange - getConversionRate called with: {} to {}", from, to);
         return currencyExchangeService.getConversionRate(from, to);
 
     }

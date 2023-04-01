@@ -39,6 +39,9 @@ public class CurrencyConversionController {
                                       @PathVariable BigDecimal quantity,
                                       HttpServletRequest request){
         Enumeration<String> headerNames = request.getHeaderNames();
+        logger.info("Remote User (login): {}", request.getRemoteUser());
+        logger.info("Remote Address: {}", request.getRemoteAddr());
+        logger.info("Local Address: {}", request.getLocalAddr());
         while (headerNames.hasMoreElements()) {
             String headerName = headerNames.nextElement();
             String headerValue = request.getHeader(headerName);
